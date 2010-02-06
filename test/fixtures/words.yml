@@ -1,0 +1,11 @@
+one:
+  word: MyString
+  pronounce: MyString
+  comment: MyString
+  sample: MyString
+
+two:
+  word: MyString
+  pronounce: MyString
+  comment: MyString
+  sample: MyString

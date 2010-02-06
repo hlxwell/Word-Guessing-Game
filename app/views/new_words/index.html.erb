@@ -1,0 +1,19 @@
+<% title "New Words" %>
+
+<table>
+  <tr>
+    <th>Word</th>
+    <th>User</th>
+    <th>Note</th>
+  </tr>
+  <% for new_word in @new_words %>
+    <tr>
+      <td><%=h new_word.word_id %></td>
+      <td><%=h new_word.user_id %></td>
+      <td><%=h new_word.note %></td>
+      <td><%= link_to "Show", user_new_word_path(@user, new_word) %></td>
+      <td><%= link_to "Edit", edit_user_new_word_path(@user, new_word) %></td>
+      <td><%= link_to "Destroy", user_new_word_path(@user, new_word), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

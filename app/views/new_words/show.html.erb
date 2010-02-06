@@ -1,0 +1,20 @@
+<% title "New Word" %>
+
+<p>
+  <strong>Word:</strong>
+  <%=h @new_word.word_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @new_word.user_id %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%=h @new_word.note %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_user_new_word_path(@user, @new_word) %> |
+  <%= link_to "Destroy", user_new_word_path(@user, @new_word), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", user_new_words_path %>
+</p>

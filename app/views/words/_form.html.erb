@@ -1,0 +1,20 @@
+<% form_for @word do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :word %><br />
+    <%= f.text_field :word %>
+  </p>
+  <p>
+    <%= f.label :pronounce %><br />
+    <%= f.text_field :pronounce %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </p>
+  <p>
+    <%= f.label :sample %><br />
+    <%= f.text_field :sample %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

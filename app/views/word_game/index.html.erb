@@ -1,0 +1,17 @@
+<h1><%= @random_word.word %> <small><%= link_to "change", '/word_game/change_word' %></small></h1>
+<h2><%= @random_word.pronounce %></h2>
+<h2><%= @random_word.comment %></h2>
+<h2><%= @random_word.sample %></h2>
+
+<h5>Currnet Player: <%= link_to @current_player.username, user_new_words_path(@current_player) %> <%= link_to "Next Player", '/word_game/change_player' %></h5>
+<p style="color: red"><%= flash[:notice] %></p>
+<% form_for @new_word, :url => user_new_words_path(@current_player) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :word_id %>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+  <p><%= f.submit "Mark" %></p>
+<% end %>

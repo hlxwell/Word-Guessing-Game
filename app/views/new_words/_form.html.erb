@@ -1,0 +1,14 @@
+<% form_for @new_word, :url => user_new_word_path(@user, @new_word) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.hidden_field :word_id %>
+  </p>
+  <p>
+    <%= f.hidden_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
