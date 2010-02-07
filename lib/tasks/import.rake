@@ -6,7 +6,6 @@ task :import_word => :environment do
   doc = REXML::Document.new File.open("words.xml").read
   doc.elements.each("dataroot/Words") { |element|
     begin
-      counter+=1;next if counter < 5361
       puts "#{counter+=1} Adding --- #{element.elements[1].text}"
 
       Word.create(
