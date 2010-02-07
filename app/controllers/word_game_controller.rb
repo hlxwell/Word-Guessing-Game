@@ -1,7 +1,15 @@
+require 'pp'
 class WordGameController < ApplicationController
   def index
     get_word
     get_player
+
+
+    if session[:all_user].blank?
+      flash[:notice] = "Add Player first!"
+      redirect_to new_user_path
+      return
+    end
 
     if NewWord.find_by_user_id_and_word_id( @current_player.id, session[:word_id] )
       @new_word = @current_player.unsent_new_words.find_by_word_id session[:word_id]

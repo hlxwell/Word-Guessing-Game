@@ -25,4 +25,5 @@ production:
   database: word_game_production
   pool: 5
   username: root
-  password: 
+  password: hzva@china
+  socket: /var/run/mysqld/mysqld.sock
