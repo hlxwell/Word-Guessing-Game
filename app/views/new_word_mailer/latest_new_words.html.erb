@@ -1,4 +1,4 @@
-<h1><%= @user.username %></h1>
+<h1><%= Time.now.to_s(:db) %></h1>
 <% @new_words.each do |new_word| %>
 <div>
   <h2><%= new_word.word.word %></h2>
