@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100205013814) do
+ActiveRecord::Schema.define(:version => 20100207050029) do
 
   create_table "new_words", :force => true do |t|
     t.integer  "word_id"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20100205013814) do
     t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sent",       :default => false
   end
 
   create_table "users", :force => true do |t|

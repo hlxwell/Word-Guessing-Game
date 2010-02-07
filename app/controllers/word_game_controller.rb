@@ -16,6 +16,17 @@ class WordGameController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def send_new_words_mail
+    stats = User.all_with_new_words.collect do |user|
+      stat = { :username => user.username, :word_count => user.unsent_new_words.count }
+      NewWordMailer.deliver_latest_new_words(user)
+      user.mark_all_new_words_as_sent
+      stat 
+    end
+    
+    render :text => stats.inspect
+  end
+
   private
 
   def set_new_word_id

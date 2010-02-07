@@ -1,0 +1,13 @@
+<h1><%= @user.username %></h1>
+<% @new_words.each do |new_word| %>
+<div>
+  <h2><%= new_word.word.word %></h2>
+  <p><%= new_word.word.pronounce %></p>
+  <p><%= new_word.word.comment %></p>
+  <p><%= new_word.word.sample %></p>
+
+  <b>Note</b>
+  <i><%= new_word.note %></i>
+  <hr/>
+</div>
+<% end %>

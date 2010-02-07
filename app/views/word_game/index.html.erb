@@ -1,7 +1,7 @@
 <h1><%= @random_word.word %> <small><%= link_to "change", '/word_game/change_word' %></small></h1>
-<h2><%= @random_word.pronounce %></h2>
-<h2><%= @random_word.comment %></h2>
-<h2><%= @random_word.sample %></h2>
+<h3><%= @random_word.pronounce %></h3>
+<h3><%= @random_word.comment %></h3>
+<p><%= @random_word.sample %></p>
 
 <h5>Currnet Player: <%= link_to @current_player.username, user_new_words_path(@current_player) %> <%= link_to "Next Player", '/word_game/change_player' %></h5>
 <p style="color: red"><%= flash[:notice] %></p>
@@ -15,3 +15,6 @@
   </p>
   <p><%= f.submit "Mark" %></p>
 <% end %>
+
+
+<%= link_to "Send New Word Mail", "word_game/send_new_words_mail" %>

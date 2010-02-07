@@ -1,19 +1,16 @@
-<% title "New Words" %>
+<%= link_to "back to game", "/" %>
 
-<table>
-  <tr>
-    <th>Word</th>
-    <th>User</th>
-    <th>Note</th>
-  </tr>
-  <% for new_word in @new_words %>
-    <tr>
-      <td><%=h new_word.word_id %></td>
-      <td><%=h new_word.user_id %></td>
-      <td><%=h new_word.note %></td>
-      <td><%= link_to "Show", user_new_word_path(@user, new_word) %></td>
-      <td><%= link_to "Edit", edit_user_new_word_path(@user, new_word) %></td>
-      <td><%= link_to "Destroy", user_new_word_path(@user, new_word), :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<h1><%= @user.username %></h1>
+<% @new_words.each do |new_word| %>
+<div>
+  <h2><%= new_word.word.word %></h2>
+  <p><%= new_word.word.pronounce %></p>
+  <p><%= new_word.word.comment %></p>
+  <p><%= new_word.word.sample %></p>
+
+  <b>Note</b>
+  <i><%= new_word.note %></i>
+  <p><%= link_to "Edit", edit_user_new_word_path(@user, new_word) %> | <%= link_to "Destroy", user_new_word_path(@user, new_word), :confirm => 'Are you sure?', :method => :delete %></p>
+  <hr/>
+</div>
+<% end %>
