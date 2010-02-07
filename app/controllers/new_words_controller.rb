@@ -1,6 +1,6 @@
 class NewWordsController < ApplicationController
   before_filter :with_user
-  
+
   def index
     @new_words = NewWord.all(:conditions => {:user_id => @user.id})
   end
@@ -31,7 +31,12 @@ class NewWordsController < ApplicationController
     @new_word = NewWord.find(params[:id])
     if @new_word.update_attributes(params[:new_word])
       flash[:notice] = "Successfully updated new word."
-      redirect_to user_new_word_path(@user, @new_word)
+
+      if params[:from_home]
+        redirect_to '/word_game'
+      else
+        redirect_to user_new_word_path(@user, @new_word)
+      end
     else
       render :action => 'edit'
     end
@@ -43,9 +48,9 @@ class NewWordsController < ApplicationController
     flash[:notice] = "Successfully destroyed new word."
     redirect_to user_new_words_url
   end
-  
+
   private
-  
+
   def with_user
     @user = User.find_by_id params[:user_id]
   end
